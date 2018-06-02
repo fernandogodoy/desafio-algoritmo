@@ -1,7 +1,7 @@
 package br.com.fsg.desafioalgoritmo;
 
 /**
- * Dado um nó da árvore calcule a soma de todos os nós subsequentes.
+ * Dado um nó da árvore calcula a soma de todos os nós subsequentes.
  * 
  * @author Fernando-Godoy
  *
@@ -14,11 +14,11 @@ public class BinarySum {
 	public Integer somarProximos(String identificao) {
 		create();
 		soma = 0;
-		buscar(binaryTree, identificao, false);
+		somar(binaryTree, identificao, false);
 		return soma;
 	}
 
-	private void buscar(BinaryTree binaryTree, String identificao, boolean encontrado) {
+	private void somar(BinaryTree binaryTree, String identificao, boolean encontrado) {
 		if (binaryTree != null) {
 			if (!encontrado && binaryTree.getId().equals(identificao)) {
 				encontrado = true;
@@ -26,8 +26,8 @@ public class BinarySum {
 			if (encontrado) {
 				soma += binaryTree.getValor();
 			}
-			buscar(binaryTree.getLeft(), identificao, encontrado);
-			buscar(binaryTree.getRight(), identificao, encontrado);
+			somar(binaryTree.getLeft(), identificao, encontrado);
+			somar(binaryTree.getRight(), identificao, encontrado);
 		}
 	}
 

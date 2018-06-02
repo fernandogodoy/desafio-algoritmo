@@ -40,8 +40,8 @@ public class NumberGenerator {
 	}
 
 	private StringBuilder concat(List<String> valoresA, List<String> valoresB) {
-		List<String> diff = diff(valoresA, valoresB);
-		Integer index = getMinIndex(valoresA, valoresB);
+		List<String> diff = getExcedentes(valoresA, valoresB);
+		Integer index = getMaxIndex(valoresA, valoresB);
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < index; i++) {
 			sb.append(valoresA.get(i));
@@ -53,12 +53,12 @@ public class NumberGenerator {
 		return sb;
 	}
 
-	private Integer getMinIndex(List<String> valoresA, List<String> valoresB) {
+	private Integer getMaxIndex(List<String> valoresA, List<String> valoresB) {
 		return valoresA.size() < valoresB.size() ? valoresA.size() : valoresB.size();
 	}
 
-	private List<String> diff(List<String> valoresA, List<String> valoresB) {
-		Integer minIndex = getMinIndex(valoresA, valoresB);
+	private List<String> getExcedentes(List<String> valoresA, List<String> valoresB) {
+		Integer minIndex = getMaxIndex(valoresA, valoresB);
 		if (valoresA.size() > valoresB.size()) {
 			return valoresA.subList(minIndex, valoresA.size());
 		}
